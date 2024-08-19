@@ -2850,8 +2850,8 @@ class Interface:
         tag = gconfig.element_attr(element_name+'_incomp')
         tag_done = gconfig.element_attr(element_name)
         if focused:
-            tag += curses.A_BOLD
-            tag_done += curses.A_BOLD
+            tag += curses.A_UNDERLINE + curses.A_REVERSE
+            tag_done += curses.A_UNDERLINE
 
         if gconfig.torrentname_is_progressbar:
             bar_width = int(float(width) * (float(percentDone) / 100))
