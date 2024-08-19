@@ -2827,7 +2827,7 @@ class Interface:
             if torrent['seeders'] <= 0 and torrent['status'] != Transmission.STATUS_CHECK:
                 size = str_f % scale_bytes(torrent['available']) + "/" + size
             size = str_f % scale_bytes(torrent['haveValid'] + torrent['haveUnchecked']) + "/" + size
-        size = '| ' + size
+        size = '  ' + size
         title = ljust_columns(torrent['name'], width - len(size)) + size
 
         if torrent['isIsolated']:
