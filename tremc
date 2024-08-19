@@ -233,7 +233,7 @@ class GConfig:
             'daemon_quit': [0, ['X'], 'Ask daemon to quit'],
             'options_dialog': [0, ['O'], PROG + ' options menu'],
             'server_options_dialog': [1, ['o'], 'Server options menu'],
-            'toggle_compact_torrentlist': [1, ['C'], 'Cycle torrent line height'],
+            'toggle_compact_torrentlist': [1, ['c'], 'Cycle torrent line height'],
             'toggle_torrent_numbers': [1, [], 'Toggle torrent number in list'],
             'turtle_mode': [1, ['t'], 'Toggle turtle mode'],
             'unmapped_actions': [0, '`', 'Show actions not mapped to keys'],
