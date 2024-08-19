@@ -3737,7 +3737,7 @@ class Interface:
     def draw_global_rates(self):
         # ↑1.2K ↓3.4M
         # ^    ^^     => +3
-        rates_width = self.rateDownload_width + self.rateUpload_width + 3
+        rates_width = self.rateDownload_width + self.rateUpload_width + 4
 
         if self.stats['alt-speed-enabled']:
             upload_limit = "/%dK" % self.stats['alt-speed-up']
@@ -3758,15 +3758,15 @@ class Interface:
                 self.screen.addstr('Turtle mode ', gconfig.element_attr('bottom_line') | curses.A_BOLD)
 
         self.screen.move(self.height - 1, self.width - rates_width - limits_width)
-        self.screen.addch(curses.ACS_DARROW, gconfig.element_attr('bottom_line'))
         self.screen.addstr(scale_bytes(self.stats['downloadSpeed']).rjust(self.rateDownload_width)[:self.rateDownload_width],
                            gconfig.element_attr('download_rate'))
+        self.screen.addch(curses.ACS_DARROW, gconfig.element_attr('bottom_line'))
         self.screen.addstr(limits['dn_limit'], gconfig.element_attr('bottom_line'))
-        self.screen.addch(' ', gconfig.element_attr('bottom_line'))
-        self.screen.addch(curses.ACS_UARROW, gconfig.element_attr('bottom_line'))
+        self.screen.addstr('  ', gconfig.element_attr('bottom_line'))
         try:
             self.screen.addstr(scale_bytes(self.stats['uploadSpeed']).rjust(self.rateUpload_width)[:self.rateUpload_width],
                                gconfig.element_attr('upload_rate'))
+            self.screen.addch(curses.ACS_UARROW, gconfig.element_attr('bottom_line'))
             self.screen.addstr(limits['up_limit'], gconfig.element_attr('bottom_line'))
         except curses.error:
             # curses can print to the last char (bottom right corner), but it raises an exception.
